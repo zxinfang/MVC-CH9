@@ -1,0 +1,48 @@
+﻿@model WebApplication1.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm())
+{
+    <h2>登入</h2>
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Account)
+            </td>
+            <td>
+                @Html.PasswordFor(model => model.Account)
+                @Html.ValidationMessageFor(model => model.Account)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Password)
+            </td>
+            <td>
+                @Html.PasswordFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ValidationSummary(true)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="登入" />
+            </td>
+        </tr>
+    </table>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
